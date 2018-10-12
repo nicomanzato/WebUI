@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title> Sign up form </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <h1> Sign up form </h1>
+    <form action="#">
+      <table>
+        <tr>
+          <td> First name: </td>
+          <td> <input type="text" name="first-name" required /> </td>
+        </tr>
+        <tr>
+          <td> Last name: </td>
+          <td> <input type="text" name="last-name" required /> </td>
+        </tr>
+        <tr>
+          <td> Email: </td>
+          <td> <input type="email" name="email" required /> </td>
+        </tr>
+        <tr>
+          <td> Birthday: </td>
+          <td> <input type="date" name="birthday" required /> </td>
+        </tr>
+        <tr>
+          <td> Favorite sport: </td>
+          <td>
+            <select name="favorite-sport">
+              <option value="0"> Choose a sport </option>
+              <option value="football"> Football </option>
+              <option value="basketball"> Basketball </option>
+              <option value="tennis"> Tennis </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td> Small bio: </td>
+          <td> <textarea name="small-bio"></textarea> </td>
+        </tr>
+        <tr>
+          <td> <input type="submit" value="Sign Up" /> </td>
+          <td> <input type="reset" value="Clear" /> </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

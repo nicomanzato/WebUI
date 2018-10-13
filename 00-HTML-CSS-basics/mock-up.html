@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title> Website Layout </title>
+  <title> Collection of boxes </title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -13,7 +13,7 @@
   <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/mock-up.css">
 </head>
 
 <body>
@@ -23,20 +23,45 @@
 
   <!-- Add your site or application content here -->
 
-  <header class="header"> This is a header </header>
+  <div class="container">
+    <header>
+      <div class="clearfix">
+        <div class="column third"> <h1> Welcome </h1> </div>
+        <div class="column two-thirds"> <p> This is a collection of boxes </p> </div>
+      </div>
+    </header>
 
-  <div class="group">
-    <nav class="navigation"> This is a nav </nav>
-    <article class="content">
-      <header class="header"> This is the article's header </header>
-      <article class="article"> This is an article </article>
-      <footer class="footer"> This is the article's footer </footer>
-    </article>
-    <aside class="sidebar"> This is an aside </aside>
+    <div class="clearfix">
+      <div class="column box">
+          <img src="media/img1.jpg" class="img" alt="Image of Pokemon number 1">
+          <div class="box-description"> This is a description </div>
+      </div>
+      <div class="column box">
+        <img src="media/img2.jpg" class="img" alt="Image of Pokemon number 2">
+        <div class="box-description"> This is a description </div>
+      </div>
+      <div class="column box">
+        <img src="media/img3.jpg" class="img" alt="Image of Pokemon number 3">
+        <div class="box-description"> This is a description </div>
+      </div>
+
+      <div class="column box">
+        <img src="media/img4.jpg" class="img" alt="Image of Pokemon number 4">
+        <div class="box-description"> This is a description </div>
+      </div>
+      <div class="column box">
+        <img src="media/img5.jpg" class="img" alt="Image of Pokemon number 5">
+        <div class="box-description"> This is a description </div>
+      </div>
+      <div class="column box">
+        <img src="media/img6.jpg" class="img" alt="Image of Pokemon number 6">
+        <div class="box-description"> This is a description </div>
+      </div>
+    </div>
+
+    <footer>
+    </footer>
   </div>
-
-  <footer class="footer"> This is a footer </footer>
-
 <!--
 
   <script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script>

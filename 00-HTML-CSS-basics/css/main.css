@@ -3,45 +3,86 @@
   font-family: serif;
 }
 
-.header {
-  background: magenta;
-  text-align: center;
-  font-size: 46px;
+/* Setting box-sizing to border-box */
+
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit
 }
 
-.navigation {
-  background: blue;
-  float: left;
-  margin: 3% 1.5%;
-  width: 30%;
-  font-size: 12px;
-}
+/* --------------------- */
 
-article {
-  background: green ! important;
+.article {
+  background-color: blue;
+  border-radius: 10px;
+  height: 300px;
 }
 
 .content{
+  border-radius: 10px;
+  display: block;
   float: left;
-  margin: 3% 1.5%;
-  width: 30%;
   font-size: 14px;
+  height: 400px;
+  margin: 0.5%;
+  width: 31%;
 }
 
-.sidebar {
-  background: magenta;
-  float: left;
-  margin: 3% 1.5%;
-  width: 30%;
-  font-size: 10px;
+.content > .header {
+  height: 50px;
+  margin: 0 0;
+}
+
+.content > .footer {
+  height: 50px;
+  margin: 0 0;
 }
 
 .footer{
-  background: magenta;
+  background-color: magenta;
+  border-radius: 10px;
   clear: both;
-  text-align: center;
   font-size: 10px;
+  height: 100px;
+  margin: 0.5% 1%;
+  text-align: center;
 }
+
+.header {
+  background-color: magenta;
+  border-radius: 10px;
+  display: block;
+  font-size: 46px;
+  height: 100px;
+  margin: 0.5% 1%;
+  text-align: center;
+}
+
+.navigation {
+  background-color: blue;
+  border-radius: 10px;
+  display: block;
+  float: left;
+  font-size: 12px;
+  height: 400px;
+  margin: 0.5% 1%;
+  width: 32%;
+}
+
+.sidebar {
+  background-color: magenta;
+  border-radius: 10px;
+  display: block;
+  float: left;
+  font-size: 10px;
+  height: 400px;
+  margin: 0.5% 1%;
+  width: 32%;
+}
+
+/* Group resets the flow of the document after grouping elements with float: defined inside of it */
 
 group:before,
 .group:after {

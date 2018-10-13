@@ -4,7 +4,7 @@
       * {
         font-size: 14px;
         font-family: serif;
-        font-weight: 700;
+        font-weight: 700;   
       }
 
 

@@ -1,7 +1,5 @@
 function fetchDataWithXMLHttpRequest(config){
-
   var request = new XMLHttpRequest();
-
   return new Promise(function (resolve, reject) {
     request.onreadystatechange = function () {
 
@@ -17,8 +15,7 @@ function fetchDataWithXMLHttpRequest(config){
 					statusText: request.statusText
 				});
 			}
-    }
-
+    };
     request.open(config.method, config.url, config.async);
     request.send();
   });
@@ -26,7 +23,36 @@ function fetchDataWithXMLHttpRequest(config){
 
 function fetchData(config){
   return fetch(config.url)
+    .then(resp => resp.text());
+}
+
+function fetchQuery(url, q){
+  let query = url + `?q=${q}`;
+  return fetch(query)
     .then(resp => resp.text())
+}
+
+function fetchRepositories(q){
+  fetchQuery("https://api.github.com/search/repositories", document.getElementById("q").value)
+    .then(resp => listRepositories(JSON.parse(resp).items));
+}
+
+function listRepositories(repositories) {
+
+  let repositoryList = document.getElementById("repository-list");
+  let textNode, liNode;
+
+  //Removing previous results
+  while (repositoryList.firstChild) {
+    repositoryList.removeChild(repositoryList.firstChild);
+  }
+
+  for(let i = 0; i < repositories.length ; i++){
+    textNode = document.createTextNode(repositories[i].full_name);
+    liNode = document.createElement("li");
+    liNode.appendChild(textNode);
+    repositoryList.appendChild(liNode);
+  }
 }
 
 function getJokes(){

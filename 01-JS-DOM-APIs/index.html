@@ -22,19 +22,35 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <div class="container">
+    <div class="clearfix">
+      <div class="one-third-column sidebar">
+        <section class="centered content">
+          <form action="#">
+            <input type="text" name="q" id="q">
+            <input type="button" onclick="fetchRepositories()" value="Search">
+          </form>
+        </section>
+        <section class="centered content">
+          Repositories:
+          <ul id="repository-list">
+            <li>test</li>
+          </ul>
+        </section>
+      </div>
+      <div class="two-third-column">
+        <section class="hidden centered content" id="hiddenSection">
+          Hello World!
+        </section>
 
-    <section class="hidden centered content" id="hiddenSection">
-      Hello World!
-    </section>
+        <section class="hidden centered content" id="jokeSection">
 
-    <section class="hidden centered content" id="jokeSection">
+        </section>
 
-    </section>
-
-    <div class="centered content">
-      <button onclick="getJokes()"> New Joke! </button>
+        <div class="centered content">
+          <button onclick="getJokes()"> New Joke! </button>
+        </div>
+      </div>
     </div>
-
   </div>
 
 <!--

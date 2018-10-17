@@ -55,13 +55,36 @@ function listRepositories(repositories) {
   }
 }
 
+function generateMatrix() {
+  return [ [ 1, 2 ,3 ], [ 4, 5 ,6], [ 7, 8 ,9 ] ];
+}
+
+function generateTableFromMatrix(matrix){
+  let table = document.createElement("table");
+  for (let x = 0; x < matrix.length; x++){
+    let tr = document.createElement("tr");
+    for (let y = 0; y < matrix[x].length; y++){
+      let td = document.createElement("td");
+      let textNode = document.createTextNode(matrix[x][y]);
+      td.appendChild(textNode);
+      tr.appendChild(td);
+    }
+    table.appendChild(tr);
+  }
+  document.getElementById("tableSection").appendChild(table);
+}
+
+function generateTable(){
+  generateTableFromMatrix(generateMatrix());
+}
+
 function getJokes(){
   let config = {};
   config.url = "http://api.icndb.com/jokes/random";
   config.method = "GET";
   config.async = true;
-  fetchDataWithXMLHttpRequest(config).then(addJoke, turnContentRed);
-  //fetchData(config).then(addJoke,turnContentRed);
+  fetchDataWithXMLHttpRequest(config).then(addJoke, turnErrorContent);
+  //fetchData(config).then(addJoke,turnErrorContent);
   fadeIn( "jokeSection" );
 }
 
@@ -77,7 +100,7 @@ function addJoke( joke ){
   section.replaceChild( jokeTextNode, jokeSection.firstChild );
 }
 
-function turnContentRed() {
+function turnErrorContent() {
   let section = document.getElementById("jokeSection");
   section.style.background = "red";
   let errorTextNode = document.createTextNode("Error: something bad happened");

@@ -106,7 +106,8 @@ function generateTable(){
 
 function fadeIn( id ) {
   let elementToFadeIn = document.getElementById(id);
-  elementToFadeIn.style.display  = "block";
+  //elementToFadeIn.style.display  = "block";
+  elementToFadeIn.style.opacity = 1;
 }
 
 function addJoke( joke ){

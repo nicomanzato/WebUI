@@ -1,3 +1,15 @@
+function getJokes(){
+  let config = {};
+  config.url = "http://api.icndb.com/jokes/random";
+  config.method = "GET";
+  config.async = true;
+  fetchDataWithXMLHttpRequest(config).then(addJoke, turnErrorContent);
+  //fetchData(config).then(addJoke,turnErrorContent);
+  fadeIn( "jokeSection" );
+}
+
+// AJAX functions with XMLHttpRequest
+
 function fetchDataWithXMLHttpRequest(config){
   var request = new XMLHttpRequest();
   return new Promise(function (resolve, reject) {
@@ -21,19 +33,31 @@ function fetchDataWithXMLHttpRequest(config){
   });
 }
 
+function parseJokeWithXMLHttpRequest( response ) {
+  return JSON.parse(response.responseText).value.joke;
+}
+
+// AJAX functions with parse
+
 function fetchData(config){
   return fetch(config.url)
     .then(resp => resp.text());
 }
 
-function fetchQuery(url, q){
-  let query = url + `?q=${q}`;
+function parseJoke( joke ){
+  return JSON.parse(joke).value.joke;
+}
+
+// Fetching data with parameters
+
+function fetchQuery(url, name){
+  let query = url + `?q=${name}`;
   return fetch(query)
     .then(resp => resp.text())
 }
 
-function fetchRepositories(q){
-  fetchQuery("https://api.github.com/search/repositories", document.getElementById("q").value)
+function fetchRepositories(){
+  fetchQuery("https://api.github.com/search/repositories", document.getElementById("query").value)
     .then(resp => listRepositories(JSON.parse(resp).items));
 }
 
@@ -54,6 +78,8 @@ function listRepositories(repositories) {
     repositoryList.appendChild(liNode);
   }
 }
+
+// Generating a table from a matrix
 
 function generateMatrix() {
   return [ [ 1, 2 ,3 ], [ 4, 5 ,6], [ 7, 8 ,9 ] ];
@@ -78,16 +104,6 @@ function generateTable(){
   generateTableFromMatrix(generateMatrix());
 }
 
-function getJokes(){
-  let config = {};
-  config.url = "http://api.icndb.com/jokes/random";
-  config.method = "GET";
-  config.async = true;
-  fetchDataWithXMLHttpRequest(config).then(addJoke, turnErrorContent);
-  //fetchData(config).then(addJoke,turnErrorContent);
-  fadeIn( "jokeSection" );
-}
-
 function fadeIn( id ) {
   let elementToFadeIn = document.getElementById(id);
   elementToFadeIn.style.display  = "block";
@@ -105,14 +121,6 @@ function turnErrorContent() {
   section.style.background = "red";
   let errorTextNode = document.createTextNode("Error: something bad happened");
   section.replaceChild(errorTextNode , jokeSection.firstChild );
-}
-
-function parseJoke( joke ){
-  return JSON.parse(joke).value.joke;
-}
-
-function parseJokeWithXMLHttpRequest( response ) {
-  return JSON.parse(response.responseText).value.joke;
 }
 
 function invokeAlert() {

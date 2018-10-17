@@ -1,29 +1,41 @@
-function fetchDataWithXMLHttpRequest(config, successCall, failureCall){
-  var req = new XMLHttpRequest();
-  req.open(config.method, config.url, config.async);
-  req.onreadystatechange = function (aEvt) {
-    if (req.readyState == 4) {
-       if(req.status == 200)
-         successCall(req.responseText);
-       else
-         failureCall();
+function fetchDataWithXMLHttpRequest(config){
+
+  var request = new XMLHttpRequest();
+
+  return new Promise(function (resolve, reject) {
+    request.onreadystatechange = function () {
+
+      // Only run if the request is complete
+      if (request.readyState !== 4) return;
+
+      // Process the response
+			if (request.status >= 200 && request.status < 300) {
+				resolve(request);
+			} else {
+				reject({
+					status: request.status,
+					statusText: request.statusText
+				});
+			}
     }
-  };
-  req.send(null);
+
+    request.open(config.method, config.url, config.async);
+    request.send();
+  });
 }
 
-function fetchDataWithPromise(config, successCall, failureCall){
-  fetch(config.url)
+function fetchData(config){
+  return fetch(config.url)
     .then(resp => resp.text())
-    .then(promise => successCall(promise), promise => failureCall(promise));
 }
 
 function getJokes(){
   let config = {};
   config.url = "http://api.icndb.com/jokes/random";
   config.method = "GET";
-  config.asyc = true;
-  fetchDataWithXMLHttpRequest(config, addJoke, turnContentRed);
+  config.async = true;
+  fetchDataWithXMLHttpRequest(config).then(addJoke, turnContentRed);
+  //fetchData(config).then(addJoke,turnContentRed);
   fadeIn( "jokeSection" );
 }
 
@@ -35,7 +47,7 @@ function fadeIn( id ) {
 function addJoke( joke ){
   let section = document.getElementById("jokeSection");
   section.style.background = "rgb(128,128,128,0.8)";
-  let jokeTextNode = document.createTextNode(parseJoke(joke));
+  let jokeTextNode = document.createTextNode(parseJokeWithXMLHttpRequest(joke));
   section.replaceChild( jokeTextNode, jokeSection.firstChild );
 }
 
@@ -48,6 +60,10 @@ function turnContentRed() {
 
 function parseJoke( joke ){
   return JSON.parse(joke).value.joke;
+}
+
+function parseJokeWithXMLHttpRequest( response ) {
+  return JSON.parse(response.responseText).value.joke;
 }
 
 function invokeAlert() {

@@ -104,12 +104,6 @@ function generateTable(){
   generateTableFromMatrix(generateMatrix());
 }
 
-function fadeIn( id ) {
-  let elementToFadeIn = document.getElementById(id);
-  //elementToFadeIn.style.display  = "block";
-  elementToFadeIn.style.opacity = 1;
-}
-
 function addJoke( joke ){
   let section = document.getElementById("jokeSection");
   section.style.background = "rgb(128,128,128,0.8)";
@@ -129,5 +123,5 @@ function invokeAlert() {
 }
 
 window.addEventListener('load', function () {
-  fadeIn( "hiddenSection" )
+  (document.getElementById('hiddenSection')).classList.add("loaded");
 }, false);

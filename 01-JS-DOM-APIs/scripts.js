@@ -5,7 +5,7 @@ function getJokes(){
   config.async = true;
   fetchDataWithXMLHttpRequest(config).then(addJoke, turnErrorContent);
   //fetchData(config).then(addJoke,turnErrorContent);
-  fadeIn( "jokeSection" );
+  (document.getElementById('jokeSection')).classList.add("loaded");
 }
 
 // AJAX functions with XMLHttpRequest

@@ -1,4 +1,4 @@
-export class EventEmitter {
+class EventEmitter {
   constructor(){
     this.events = {};
   }
@@ -8,10 +8,20 @@ export class EventEmitter {
   }
 
   emit(eventName){
-    this.events[eventName]();
+    try{
+      this.events[eventName]();
+    } catch(err){
+      console.log("nobody is listening for this event");
+    }
   }
 
   off(eventName){
-    this.events[eventName] = null;
+    try{
+      this.events[eventName] = null;
+    } catch(err){
+      console.log("nobody was listening for this event");
+    }
   }
 }
+
+export default EventEmitter

@@ -10,16 +10,13 @@ class Movie extends EventEmitter{
   }
 
   play() {
-    console.log(this.title + " is playing");
     this.emit("play");
   }
 
   pause() {
-    console.log(this.title + " is paused");
     this.emit("pause");
   }
   resume() {
-    console.log(this.title + " resumed playing");
     this.emit("resume");
   }
 

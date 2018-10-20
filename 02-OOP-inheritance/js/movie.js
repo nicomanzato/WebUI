@@ -1,4 +1,6 @@
-class Movie {
+import { EventEmitter } from 'EventEmitter.js';
+
+export class Movie extends EventEmitter{
   constructor(title, year, duration){
     this.title = title;
     this.year = year;

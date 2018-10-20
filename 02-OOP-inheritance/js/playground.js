@@ -18,5 +18,9 @@ window.addEventListener('load', function () {
   movie.play();
   movie.pause();
   movie.resume();
-  
+
+  movie.addCast(actor);
+
+  console.log(movie);
+
 }, false);

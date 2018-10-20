@@ -23,6 +23,12 @@ class Movie extends EventEmitter{
     this.emit("resume");
   }
 
+  addCast(...cast) {
+
+    for(let i = 0; i < cast.length; i++){
+      this.cast.push(cast[i]);
+    }
+  }
 }
 
 export default Movie

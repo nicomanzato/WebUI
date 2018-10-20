@@ -4,7 +4,7 @@ import Logger from '/js/logger.js';
 
 window.addEventListener('load', function () {
 
-  const movie = new Movie("Pokemon", 1993, 1.5);
+  const movie = new Movie("Pokemon The Movie", 1993, 1.5);
   const actor = new Actor("Pikachu", 5);
   const logger = new Logger();
 
@@ -17,5 +17,8 @@ window.addEventListener('load', function () {
   movie.resume();
 
   movie.addCast(actor);
+
+  movie.like("Nic");
+  movie.share("Nic");
 
 }, false);

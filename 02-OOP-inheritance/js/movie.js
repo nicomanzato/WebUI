@@ -1,4 +1,5 @@
 import EventEmitter from '/js/eventEmitter.js';
+import socialMixin from '/js/socialMixin.js';
 
 class Movie extends EventEmitter{
   constructor(title, year, duration){
@@ -7,6 +8,8 @@ class Movie extends EventEmitter{
     this.year = year;
     this.duration = duration;
     this.cast = [];
+
+    Object.assign(Movie.prototype, socialMixin);
   }
 
   play() {

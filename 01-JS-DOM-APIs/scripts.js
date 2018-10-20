@@ -125,3 +125,7 @@ function invokeAlert() {
 window.addEventListener('load', function () {
   (document.getElementById('hiddenSection')).classList.add("loaded");
 }, false);
+
+document.getElementById("jokeButton").addEventListener("click", () => getJokes());
+
+document.getElementById("generateTableButton").addEventListener("click", () => generateTable());

@@ -106,14 +106,14 @@ function generateTable(){
 
 function addJoke( joke ){
   let section = document.getElementById("jokeSection");
-  section.style.background = "rgb(128,128,128,0.8)";
+  section.classList.remove("error");
   let jokeTextNode = document.createTextNode(parseJokeWithXMLHttpRequest(joke));
   section.replaceChild( jokeTextNode, jokeSection.firstChild );
 }
 
 function turnErrorContent() {
   let section = document.getElementById("jokeSection");
-  section.style.background = "red";
+  section.classList.add("error");
   let errorTextNode = document.createTextNode("Error: something bad happened");
   section.replaceChild(errorTextNode , jokeSection.firstChild );
 }

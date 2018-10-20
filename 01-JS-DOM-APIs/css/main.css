@@ -46,6 +46,9 @@ section {
   opacity: 1;
 }
 
+.error {
+  background-color: red;
+}
 /* clearfix resets the flow of the document after grouping elements with float: defined inside of it */
 
 .clearfix:before,

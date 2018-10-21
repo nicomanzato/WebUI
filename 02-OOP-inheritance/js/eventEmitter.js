@@ -4,23 +4,25 @@ class EventEmitter {
   }
 
   on(eventName, callback){
-    this.events[eventName] = callback;
+
+    if (!this.events[eventName]) {
+      this.events[eventName] = [];
+    }
+
+    this.events[eventName].push(callback);
   }
 
-  emit(eventName){
-    try{
-      this.events[eventName]();
-    } catch(err){
-      console.log("nobody is listening for this event");
+  emit(eventName, data){
+    const event = this.events[eventName];
+    if (event) {
+      event.forEach( fn => {
+        fn.call(null,data)
+      });
     }
   }
 
   off(eventName){
-    try{
-      this.events[eventName] = null;
-    } catch(err){
-      console.log("nobody was listening for this event");
-    }
+    this.events[eventName] = [];
   }
 }
 

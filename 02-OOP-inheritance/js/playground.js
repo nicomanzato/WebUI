@@ -9,6 +9,7 @@ window.addEventListener('load', function () {
   const logger = new Logger();
 
   movie.on("play", () => logger.log("The movie is playing"));
+  movie.on("play", () => logger.log("Now you can have multiple callbacks to a single event"));
   movie.on("pause", () => logger.log("The movie is paused"));
   movie.on("resume", () => logger.log("The movie resumed playing"));
 

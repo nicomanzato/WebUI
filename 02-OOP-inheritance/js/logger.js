@@ -1,4 +1,4 @@
-class Logger {
+export class Logger {
   constructor(){
   }
 
@@ -6,5 +6,3 @@ class Logger {
     console.log("Logger: " + info);
   }
 }
-
-export default Logger

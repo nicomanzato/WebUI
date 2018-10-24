@@ -1,6 +1,6 @@
-import Movie from '/js/movie.js';
-import Actor from '/js/actor.js';
-import Logger from '/js/logger.js';
+import { Movie } from './movie.js';
+import { Actor } from './actor.js';
+import { Logger } from './logger.js';
 
 window.addEventListener('load', function () {
 

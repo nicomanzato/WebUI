@@ -1,5 +1,5 @@
-const socialMixin = {
-  
+export const socialMixin = {
+
   share(friendName) {
     console.log(friendName + " shared " + this.title);
   },
@@ -8,4 +8,3 @@ const socialMixin = {
     console.log(friendName + " liked " + this.title);
   }
 }
-export default socialMixin

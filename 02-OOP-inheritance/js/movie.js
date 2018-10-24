@@ -1,7 +1,7 @@
-import EventEmitter from '/js/eventEmitter.js';
-import socialMixin from '/js/socialMixin.js';
+import { EventEmitter } from './eventEmitter.js';
+import { socialMixin } from './socialMixin.js';
 
-class Movie extends EventEmitter{
+export class Movie extends EventEmitter{
   constructor(title, year, duration){
     super()
     this.title = title;
@@ -13,14 +13,14 @@ class Movie extends EventEmitter{
   }
 
   play() {
-    this.emit("play");
+    this.emit("play", this);
   }
 
   pause() {
-    this.emit("pause");
+    this.emit("pause", this);
   }
   resume() {
-    this.emit("resume");
+    this.emit("resume", this);
   }
 
   addCast(...cast) {
@@ -30,5 +30,3 @@ class Movie extends EventEmitter{
     }
   }
 }
-
-export default Movie

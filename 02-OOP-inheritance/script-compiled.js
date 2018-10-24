@@ -106,6 +106,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Movie = void 0;
 
+var _eventEmitter = require("./eventEmitter.js");
+
+var _socialMixin = require("./socialMixin.js");
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -139,7 +143,7 @@ function (_EventEmitter) {
     _this.year = year;
     _this.duration = duration;
     _this.cast = [];
-    Object.assign(Movie.prototype, socialMixin);
+    Object.assign(Movie.prototype, _socialMixin.socialMixin);
     return _this;
   }
 
@@ -168,15 +172,21 @@ function (_EventEmitter) {
   }]);
 
   return Movie;
-}(EventEmitter);
+}(_eventEmitter.EventEmitter);
 
 exports.Movie = Movie;
 "use strict";
 
+var _movie = require("./movie.js");
+
+var _actor = require("./actor.js");
+
+var _logger = require("./logger.js");
+
 window.addEventListener('load', function () {
-  var movie = new Movie("Pokemon The Movie", 1993, 1.5);
-  var actor = new Actor("Pikachu", 5);
-  var logger = new Logger();
+  var movie = new _movie.Movie("Pokemon The Movie", 1993, 1.5);
+  var actor = new _actor.Actor("Pikachu", 5);
+  var logger = new _logger.Logger();
   movie.on("play", function () {
     return logger.log("The movie is playing");
   });

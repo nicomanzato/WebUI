@@ -21,20 +21,29 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <div class="container">
+    <section class="content clearfix">
+      <header>
+        <h2>1. Storages</h2>
+      </header>
+      <form action="#">
+        <div class="two-third-column leftFloated centered">
+          <textarea name="textToSave" rows="4" cols="50" id="textToSave"></textarea>
+        </div>
+        <div class="one-third-column leftFloated centered">
+          <button class="button" id="saveButton"> Save! </button>
+          <button class="button clearButton" id="clearButton"> Clear! </button>
+        </div>
+      </form>
+    </section>
     <section class="content">
-      <div class="clearfix">
-        <header>
-          <h2>1. Storages</h2>
-        </header>
-        <form action="#">
-          <div class="two-third-column leftFloated centered">
-            <textarea name="textToSave" rows="4" cols="50" id="textToSave"></textarea>
-          </div>
-          <div class="one-third-column leftFloated centered">
-            <button class="button" id="saveButton"> Save! </button>
-          </div>
-        </form>
-      </div>
+      <header>
+        <h2>2. Drag and Drop</h2>
+      </header>
+      <form action="#">
+        <div class="centered">
+          <textarea name="dragndrop" rows="4" cols="50" id="dragndrop"></textarea>
+        </div>
+      </form>
     </section>
   </div>
 
@@ -54,6 +63,7 @@
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 -->
   <script src="js/1.storages.js"></script>
+  <script src="js/2.dragndrop.js"></script>
 </body>
 
 </html>

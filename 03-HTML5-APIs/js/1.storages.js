@@ -49,10 +49,28 @@ const readWithIndexedDB = () => {
   request.onsuccess = function(event) {
     // Do something with the request.result!
     let result = request.result;
-    document.getElementById("textToSave").value = result[result.length - 1].value;
+    try{
+      document.getElementById("textToSave").value = result[result.length - 1].value;
+    } catch(err){
+      console.log("IndexedDB is empty");
+    }
   };
 }
 
+const clearWithIndexedDB = () => {
+  var transaction = db.transaction(["store"], 'readwrite');
+  var objectStore = transaction.objectStore("store");
+  var request = objectStore.clear();
+  request.onerror = function(event) {
+    // Handle errors!
+    console.log("Error: something went wrong");
+  };
+  request.onsuccess = function(event) {
+    // Do something with the request.result!
+    console.log("data cleared!");
+    document.getElementById("textToSave").value = "";
+  };
+}
 // 1. Storages: Local Storage Implementation
 
 const storeWithLocalStorage = (key, value) => {
@@ -63,16 +81,27 @@ const readWithLocalStorage = key => {
   return localStorage.getItem(key);
 }
 
+const clearWithLocalStorage = key => {
+  localStorage.setItem(key, "");
+  document.getElementById("textToSave").value = "";
+  console.log("data cleared!");
+}
+
 document.getElementById("saveButton").addEventListener("click", () => {
 
-  //storeWithLocalStorage("textToSave", document.getElementById("textToSave").value);
-  storeWithIndexedDB(document.getElementById("textToSave").value);
+  storeWithLocalStorage("textToSave", document.getElementById("textToSave").value);
+  //storeWithIndexedDB(document.getElementById("textToSave").value);
+});
+
+document.getElementById("clearButton").addEventListener("click", () => {
+  //clearWithIndexedDB();
+  clearWithLocalStorage("textToSave");
 });
 
 window.addEventListener('load', function () {
 
   let textArea = document.getElementById("textToSave");
-  //textArea.value = readWithLocalStorage("textToSave");
+  textArea.value = readWithLocalStorage("textToSave");
 
-  openIndexedDB(readWithIndexedDB);
+  //openIndexedDB(readWithIndexedDB);
 }, false);

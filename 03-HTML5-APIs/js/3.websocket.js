@@ -14,6 +14,8 @@ window.addEventListener("load",() => {
   // Log messages from the server
   connection.onmessage = function (e) {
     console.log('Server: ' + e.data);
+    let textNode = document.createTextNode('Server: ' + e.data);
+    document.getElementById("webServiceAnswer").appendChild(textNode);
   };
 
 });

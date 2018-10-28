@@ -5,12 +5,24 @@ function handleFileSelect(evt) {
   let files = evt.dataTransfer.files; // FileList object.
   let ul = document.createElement("ul");
 
+  let fileReader = new FileReader();
+  fileReader.onload = (event) => {
+    let ul = document.createElement("ul");
+    let li = document.createElement("li");
+    let textNode = document.createTextNode(event.target.result);
+
+    li.appendChild(textNode);
+    ul.appendChild(li);
+    document.getElementById("list").appendChild(ul);
+  }
+
   for (var i = 0, f; f = files[i]; i++) {
 
     let li = document.createElement("li");
-    let textNode = document.createTextNode(escape(f.name));
+    let nameTextNode = document.createTextNode(escape(f.name));
+    fileReader.readAsText(f);
 
-    ul.appendChild(textNode);
+    ul.appendChild(nameTextNode);
   };
 
   document.getElementById("list").appendChild(ul);

@@ -26,11 +26,8 @@ class App extends React.Component {
   editMovie(movie) {
     let newMovieName = prompt("Enter a new Movie name");
 
-    var newMovieList = this.state.movieList.slice();
-    newMovieList.forEach((movieElement) => {
-      if (movie === movieElement) {
-        movieElement = newMovieName;
-      }
+    var newMovieList = this.state.movieList.map( (movieElement) => {
+      return movieElement == movie ? newMovieName : movieElement
     });
 
     this.setState({

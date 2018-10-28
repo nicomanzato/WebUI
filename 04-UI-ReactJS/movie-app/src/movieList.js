@@ -1,11 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Movie from './movie.js';
 
 class MovieList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   renderMovie(movieName) {
     return (
@@ -13,8 +9,8 @@ class MovieList extends React.Component {
     );
   }
 
-  handleEdit(){
-    alert("editMode");
+  handleEdit(movie){
+    this.props.onEdit(movie);
   }
 
   render() {
@@ -22,7 +18,7 @@ class MovieList extends React.Component {
     const movieList = this.props.movies.map((movie, index) =>
       <tr key={index}>
         <td key={index + 'a'}>{ this.renderMovie(movie) }</td>
-        <td key={index + 'b'}><button onClick={this.handleEdit}>Edit</button></td>
+        <td key={index + 'b'}><button onClick={ () => this.handleEdit(movie)}>Edit</button></td>
         <td key={index + 'c'}><button>Delete</button></td>
       </tr>
     );

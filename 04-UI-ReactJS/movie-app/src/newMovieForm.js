@@ -1,7 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Movie from './movie.js';
-import MovieList from './movieList.js';
 
 class NewMovieForm extends React.Component {
   constructor(props) {

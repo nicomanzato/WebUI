@@ -9,8 +9,12 @@ class MovieList extends React.Component {
     );
   }
 
-  handleEdit(movie){
+  handleEdit(movie) {
     this.props.onEdit(movie);
+  }
+
+  handleDelete(movie) {
+    this.props.onDelete(movie);
   }
 
   render() {
@@ -19,7 +23,7 @@ class MovieList extends React.Component {
       <tr key={index}>
         <td key={index + 'a'}>{ this.renderMovie(movie) }</td>
         <td key={index + 'b'}><button onClick={ () => this.handleEdit(movie)}>Edit</button></td>
-        <td key={index + 'c'}><button>Delete</button></td>
+        <td key={index + 'c'}><button onClick={ () => this.handleDelete(movie)}>Delete</button></td>
       </tr>
     );
 

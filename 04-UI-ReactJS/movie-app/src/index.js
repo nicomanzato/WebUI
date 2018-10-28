@@ -12,6 +12,7 @@ class App extends React.Component {
 
     this.addMovie = this.addMovie.bind(this);
     this.editMovie = this.editMovie.bind(this);
+    this.deleteMovie = this.deleteMovie.bind(this);
   }
 
   addMovie(movie) {
@@ -27,7 +28,7 @@ class App extends React.Component {
     let newMovieName = prompt("Enter a new Movie name");
 
     var newMovieList = this.state.movieList.map( (movieElement) => {
-      return movieElement == movie ? newMovieName : movieElement
+      return movieElement === movie ? newMovieName : movieElement
     });
 
     this.setState({
@@ -36,8 +37,14 @@ class App extends React.Component {
 
   }
 
-  deleteMovie(id) {
+  deleteMovie(movie) {
+    var newMovieList = this.state.movieList.filter( (movieElement) => {
+      return movieElement !== movie;
+    });
 
+    this.setState({
+      movieList: newMovieList
+    });
   }
 
   render() {

@@ -24,12 +24,11 @@ class App extends React.Component {
     })
   }
 
-  editMovie(movie) {
-    let newMovieName = prompt("Enter a new Movie name");
-
-    var newMovieList = this.state.movieList.map( (movieElement) => {
-      return movieElement === movie ? newMovieName : movieElement
-    });
+  editMovie(index, newMovieName) {
+    let newMovieList = this.state.movieList
+        .slice(0, index)
+        .concat([newMovieName])
+        .concat(this.state.movieList.slice(index+1));
 
     this.setState({
       movieList: newMovieList
@@ -37,10 +36,11 @@ class App extends React.Component {
 
   }
 
-  deleteMovie(movie) {
-    var newMovieList = this.state.movieList.filter( (movieElement) => {
-      return movieElement !== movie;
-    });
+  deleteMovie(index) {
+    var newMovieList = this.state.movieList
+        .slice(0, index)
+        .concat(this.state.movieList.slice(index+1));
+
 
     this.setState({
       movieList: newMovieList

@@ -3,6 +3,14 @@ import Movie from './movie.js';
 
 class MovieList extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.props.store.subscribe(() => this.reloadMovies());
+
+    this.state = {
+      movies: this.props.store.getState().movieAction.movies
+    }
+  }
   renderMovie(movieName) {
     return (
       <Movie name={movieName} />
@@ -17,9 +25,15 @@ class MovieList extends React.Component {
     this.props.onDelete(index);
   }
 
+  reloadMovies() {
+    this.setState({
+      movies: this.props.store.getState().movieAction.movies
+    });
+  }
+
   render() {
 
-    const movieList = this.props.movies.map((movie, index) =>
+    const movieList = this.state.movies.map((movie, index) =>
       <tr key={index}>
         <td key={index + 'a'}>{ this.renderMovie(movie) }</td>
         <td key={index + 'b'}><button onClick={ () => this.handleEdit(index)}>Edit</button></td>

@@ -22,21 +22,10 @@ class App extends React.Component {
     //  movieList: []
     //}
 
-    // Log the initial state
-    console.log(store.getState());
-    // Every time the state changes, log it
-    // Note that subscribe() returns a function for unregistering the listener
-    const unsubscribe = store.subscribe(() => console.log(store.getState()));
-    // Dispatch some actions
-    store.dispatch(addMovie('Learn about actions'));
-    store.dispatch(addMovie('Learn about reducers'));
-    store.dispatch(addMovie('Learn about store'));
-    // Stop listening to state updates
-
-
-    this.addMovie = this.addMovie.bind(this);
-    this.editMovie = this.editMovie.bind(this);
-    this.deleteMovie = this.deleteMovie.bind(this);
+    //Previous implementation
+    //this.addMovie = this.addMovie.bind(this);
+    //this.editMovie = this.editMovie.bind(this);
+    //this.deleteMovie = this.deleteMovie.bind(this);
   }
 
   addMovie(movie) {
@@ -89,17 +78,11 @@ class App extends React.Component {
     store.dispatch(deleteMovie(index));
   }
 
-  getMovies() {
-    let state = store.getState();
-    //console.log(state);
-    return state.movieAction.movies;
-  }
-
   render() {
     return (
       <div>
         <div><NewMovieForm onSubmit={this.addMovie} /></div>
-        <div><MovieList movies={this.getMovies()} onEdit={this.editMovie} onDelete={this.deleteMovie} /></div>
+        <div><MovieList store={store} onEdit={this.editMovie} onDelete={this.deleteMovie} /></div>
       </div>
     )
   }

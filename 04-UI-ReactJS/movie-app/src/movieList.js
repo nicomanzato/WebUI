@@ -1,5 +1,6 @@
 import React from 'react';
 import Movie from './movie.js';
+import EditMovieForm from './editMovieForm.js';
 
 class MovieList extends React.Component {
 
@@ -10,15 +11,6 @@ class MovieList extends React.Component {
     this.state = {
       movies: this.props.store.getState().movieAction.movies
     }
-  }
-  renderMovie(movieName) {
-    return (
-      <Movie name={movieName} />
-    );
-  }
-
-  handleEdit(index) {
-    this.props.onEdit(index, prompt("Enter a new Movie name"));
   }
 
   handleDelete(index) {
@@ -35,18 +27,21 @@ class MovieList extends React.Component {
 
     const movieList = this.state.movies.map((movie, index) =>
       <tr key={index}>
-        <td key={index + 'a'}>{ this.renderMovie(movie) }</td>
-        <td key={index + 'b'}><button onClick={ () => this.handleEdit(index)}>Edit</button></td>
+        <td key={index + 'a'}><Movie name={movie} /></td>
+        <td key={index + 'b'}><EditMovieForm onSubmit={this.props.onEdit} movie={movie} movieIndex={index} /></td>
         <td key={index + 'c'}><button onClick={ () => this.handleDelete(index)}>Delete</button></td>
       </tr>
     );
 
     return (
-      <table>
-        <tbody>
-          { movieList }
-        </tbody>
-      </table>
+      <div>
+        <h2>Movie List</h2>
+        <table>
+          <tbody>
+            { movieList }
+          </tbody>
+        </table>
+      </div>
     );
   }
 }

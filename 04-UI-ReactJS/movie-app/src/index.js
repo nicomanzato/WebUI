@@ -22,6 +22,12 @@ class App extends React.Component {
     //  movieList: []
     //}
 
+    console.log(store.getState());
+    const unsubscribe = store.subscribe(() => console.log(store.getState()));
+    store.dispatch(addMovie('Learn about actions'));
+    store.dispatch(addMovie('Learn about reducers'));
+    store.dispatch(addMovie('Learn about store'));
+
     //Previous implementation
     //this.addMovie = this.addMovie.bind(this);
     //this.editMovie = this.editMovie.bind(this);
@@ -76,6 +82,12 @@ class App extends React.Component {
 
     //Redux Implementation
     store.dispatch(deleteMovie(index));
+  }
+
+  getMovies() {
+    let state = store.getState();
+    //console.log(state);
+    return state.movieAction.movies;
   }
 
   render() {

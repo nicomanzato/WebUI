@@ -22,11 +22,23 @@ class App extends React.Component {
     //  movieList: []
     //}
 
-    console.log(store.getState());
     const unsubscribe = store.subscribe(() => console.log(store.getState()));
-    store.dispatch(addMovie('Learn about actions'));
-    store.dispatch(addMovie('Learn about reducers'));
-    store.dispatch(addMovie('Learn about store'));
+
+    store.dispatch(addMovie({
+      name: 'Movie 1 asdf',
+      duration: 2,
+      year: 1993
+    }));
+    store.dispatch(addMovie({
+      name: 'Movie 2',
+      duration: 2,
+      year: 1993
+    }));
+    store.dispatch(addMovie({
+      name: 'Movie 3',
+      duration: 2,
+      year: 1993
+    }));
 
     //Previous implementation
     //this.addMovie = this.addMovie.bind(this);
@@ -50,7 +62,7 @@ class App extends React.Component {
     store.dispatch(addMovie(movie));
   }
 
-  editMovie(index, newMovieName) {
+  editMovie(index, newMovie) {
     // Previous implementation
     /*
     let newMovieList = this.state.movieList
@@ -64,7 +76,7 @@ class App extends React.Component {
     */
 
     //Redux Implementation
-    store.dispatch(editMovie(index, newMovieName));
+    store.dispatch(editMovie(index, newMovie));
   }
 
   deleteMovie(index) {

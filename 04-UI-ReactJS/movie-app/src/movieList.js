@@ -27,7 +27,7 @@ class MovieList extends React.Component {
 
     const movieList = this.state.movies.map((movie, index) =>
       <tr key={index}>
-        <td key={index + 'a'}><Movie name={movie} /></td>
+        <td key={index + 'a'}><Movie movie={movie} /></td>
         <td key={index + 'b'}><EditMovieForm onSubmit={this.props.onEdit} movie={movie} movieIndex={index} /></td>
         <td key={index + 'c'}><button onClick={ () => this.handleDelete(index)}>Delete</button></td>
       </tr>

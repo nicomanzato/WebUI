@@ -3,18 +3,36 @@ import React from 'react';
 class NewMovieForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {
+      name: '',
+      duration: 0,
+      year: 0
+    };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleYearChange = this.handleYearChange.bind(this);
+    this.handleDurationChange = this.handleDurationChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  handleNameChange(event) {
+    this.setState({name: event.target.value});
+  }
+
+  handleYearChange(event) {
+    this.setState({year: event.target.value});
+  }
+
+  handleDurationChange(event) {
+    this.setState({duration: event.target.value});
   }
 
   handleSubmit(event) {
-    this.props.onSubmit(this.state.value);
+    this.props.onSubmit({
+      name: this.state.name,
+      duration: this.state.duration,
+      year: this.state.year
+    });
     event.preventDefault();
   }
 
@@ -24,8 +42,16 @@ class NewMovieForm extends React.Component {
         <h2>New Movie</h2>
         <form onSubmit={this.handleSubmit}>
           <label>
-            Movie Name:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            Name:
+            <input type="text" value={this.state.name} onChange={this.handleNameChange} />
+          </label>
+          <label>
+            Duration:
+            <input type="text" value={this.state.duration} onChange={this.handleDurationChange} />
+          </label>
+          <label>
+            Year:
+            <input type="text" value={this.state.year} onChange={this.handleYearChange} />
           </label>
           <input type="submit" value="Submit" />
         </form>

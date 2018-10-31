@@ -11,14 +11,14 @@ function movieAction(state = initialState, action) {
       return Object.assign({}, state, {
         movies: [
           ...state.movies,
-          action.movieName
+          action.newMovie
         ]
       })
     case EDIT_MOVIE:
       return Object.assign({}, state, {
         movies: state.movies
           .slice(0, action.index)
-          .concat(action.newMovieName)
+          .concat(action.newMovie)
           .concat(state.movies.slice(action.index+1))
       })
     case DELETE_MOVIE:

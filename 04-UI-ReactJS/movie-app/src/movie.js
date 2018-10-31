@@ -1,9 +1,13 @@
-import React from 'react';
+class Movie {
+  constructor(name, duration, year){
+    this.name = name;
+    this.duration = duration;
+    this.year = year;
+  }
 
-const Movie = props => {
-  return (
-    <p> {props.movie.name} Duration: {props.movie.duration} Year: {props.movie.year} </p>
-  );
+  toString = () => {
+    return this.name + ", " + this.year + "(" + this.duration + " hs)";
+  }
 }
 
 export default Movie

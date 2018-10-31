@@ -1,4 +1,5 @@
 import React from 'react';
+import Movie from './Movie.js'
 
 class NewMovieForm extends React.Component {
   constructor(props) {
@@ -28,11 +29,7 @@ class NewMovieForm extends React.Component {
   }
 
   handleSubmit(event) {
-    this.props.onSubmit({
-      name: this.state.name,
-      duration: this.state.duration,
-      year: this.state.year
-    });
+    this.props.onSubmit(new Movie(this.state.name, this.state.duration, this.state.year));
     event.preventDefault();
   }
 

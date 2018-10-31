@@ -9,6 +9,7 @@ import {
   editMovie,
   deleteMovie,
 } from './redux/actions'
+import Movie from './Movie.js';
 
 const store = createStore(movieApp);
 
@@ -24,22 +25,9 @@ class App extends React.Component {
 
     const unsubscribe = store.subscribe(() => console.log(store.getState()));
 
-    store.dispatch(addMovie({
-      name: 'Movie 1 asdf',
-      duration: 2,
-      year: 1993
-    }));
-    store.dispatch(addMovie({
-      name: 'Movie 2',
-      duration: 2,
-      year: 1993
-    }));
-    store.dispatch(addMovie({
-      name: 'Movie 3',
-      duration: 2,
-      year: 1993
-    }));
-
+    store.dispatch(addMovie(new Movie('Movie 1', 2, 1993)));
+    store.dispatch(addMovie(new Movie('Movie 2', 3, 1993)));
+    store.dispatch(addMovie(new Movie('Movie 3', 4, 1993)));
     //Previous implementation
     //this.addMovie = this.addMovie.bind(this);
     //this.editMovie = this.editMovie.bind(this);

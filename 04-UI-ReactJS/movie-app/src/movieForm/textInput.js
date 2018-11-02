@@ -4,9 +4,9 @@ class TextInput extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      value: props.value
+      value: this.props.value
     }
-
+    
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -16,7 +16,7 @@ class TextInput extends React.Component {
 
   render() {
     return (
-      <input type="text" value={this.state.name} onChange={this.handleChange} />
+      <input type="text" value={this.state.value} onChange={this.props.onChange} />
     );
   }
 

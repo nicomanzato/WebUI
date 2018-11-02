@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux'
 import MovieList from './movieList.js';
 import NewMovieForm from './movieForm/newMovieForm.js';
 import { createStore } from 'redux'
@@ -10,6 +11,7 @@ import {
   deleteMovie,
 } from './redux/actions'
 import Movie from './Movie.js';
+import WrappedMovieList from './redux/wrappedMovieList.js'
 
 const store = createStore(movieApp);
 
@@ -84,17 +86,11 @@ class App extends React.Component {
     store.dispatch(deleteMovie(index));
   }
 
-  getMovies() {
-    let state = store.getState();
-    //console.log(state);
-    return state.movieAction.movies;
-  }
-
   render() {
     return (
       <div>
         <div><NewMovieForm title='New Movie' onSubmit={this.addMovie} /></div>
-        <div><MovieList store={store} onEdit={this.editMovie} onDelete={this.deleteMovie} /></div>
+        <div><WrappedMovieList onEdit={this.editMovie} onDelete={this.deleteMovie} /></div>
       </div>
     )
   }
@@ -104,6 +100,8 @@ class App extends React.Component {
 // ========================================
 
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );

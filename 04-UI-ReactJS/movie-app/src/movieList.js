@@ -2,48 +2,25 @@ import React from 'react';
 import MovieComponent from './movieComponent.js';
 import EditMovieForm from './movieForm/editMovieForm.js';
 
-class MovieList extends React.Component {
+const MovieList = (props) => {
+  const movieList = (props.movies).map((movie, index) =>
+    <tr key={index}>
+      <td key={index + 'a'}><MovieComponent movie={movie} /></td>
+      <td key={index + 'b'}><EditMovieForm onSubmit={props.onEdit} movie={movie} movieIndex={index}/></td>
+      <td key={index + 'c'}><button onClick={ () => props.onDelete(index)}>Delete</button></td>
+    </tr>
+  );
 
-  constructor(props) {
-    super(props);
-    this.props.store.subscribe(() => this.reloadMovies());
-
-    this.state = {
-      movies: this.props.store.getState().movieAction.movies
-    }
-  }
-
-  handleDelete(index) {
-    this.props.onDelete(index);
-  }
-
-  reloadMovies() {
-    this.setState({
-      movies: this.props.store.getState().movieAction.movies
-    });
-  }
-
-  render() {
-
-    const movieList = this.state.movies.map((movie, index) =>
-      <tr key={index}>
-        <td key={index + 'a'}><MovieComponent movie={movie} /></td>
-        <td key={index + 'b'}><EditMovieForm onSubmit={this.props.onEdit} movie={movie} movieIndex={index}/></td>
-        <td key={index + 'c'}><button onClick={ () => this.handleDelete(index)}>Delete</button></td>
-      </tr>
-    );
-
-    return (
-      <div>
-        <h2>Movie List</h2>
-        <table>
-          <tbody>
-            { movieList }
-          </tbody>
-        </table>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <h2>Movie List</h2>
+      <table>
+        <tbody>
+          { movieList }
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
 export default MovieList

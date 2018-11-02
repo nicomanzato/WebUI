@@ -1,6 +1,6 @@
 import React from 'react';
-import MovieComponent from './movieComponent.js';
-import EditMovieForm from './movieForm/editMovieForm.js';
+import MovieComponent from './../movieComponent.js';
+import EditMovieForm from './../movieForm/editMovieForm.js';
 
 const MovieList = (props) => {
   const movieList = (props.movies).map((movie, index) =>

@@ -10,7 +10,7 @@ import {
   deleteMovie,
 } from './actions'
 import Movie from './classes/Movie.js';
-import WrappedMovieList from './components/wrappedMovieList.js'
+import WrappedMovieList from './components/movieList/wrappedMovieList.js'
 
 const store = createStore(movieApp);
 

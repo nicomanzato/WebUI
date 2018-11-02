@@ -1,5 +1,5 @@
 import React from 'react';
-import Movie from './../Movie.js';
+import Movie from './../../classes/Movie.js';
 import TextInput from './textInput.js';
 
 class MovieForm extends React.Component {

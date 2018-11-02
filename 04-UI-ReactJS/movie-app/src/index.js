@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
-import MovieList from './movieList.js';
-import NewMovieForm from './movieForm/newMovieForm.js';
+import NewMovieForm from './components/movieForm/newMovieForm.js';
 import { createStore } from 'redux'
-import movieApp from './redux/movieApp.js';
+import movieApp from './movieApp.js';
 import {
   addMovie,
   editMovie,
   deleteMovie,
-} from './redux/actions'
-import Movie from './Movie.js';
-import WrappedMovieList from './redux/wrappedMovieList.js'
+} from './actions'
+import Movie from './classes/Movie.js';
+import WrappedMovieList from './components/wrappedMovieList.js'
 
 const store = createStore(movieApp);
 

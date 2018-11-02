@@ -1,13 +1,16 @@
 import React from 'react';
-import Movie from './Movie.js'
+import Movie from './../Movie.js';
+import TextInput from './textInput.js';
 
-class NewMovieForm extends React.Component {
+class MovieForm extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      duration: 0,
-      year: 0
+      name: this.props.movie.name,
+      duration: this.props.movie.duration,
+      year: this.props.movie.year,
+      index: this.props.movieIndex
     };
 
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -29,26 +32,25 @@ class NewMovieForm extends React.Component {
   }
 
   handleSubmit(event) {
-    this.props.onSubmit(new Movie(this.state.name, this.state.duration, this.state.year));
+    this.props.onSubmit(new Movie(this.state.name, this.state.duration, this.state.year), this.state.index);
     event.preventDefault();
   }
 
   render() {
     return (
       <div>
-        <h2>New Movie</h2>
         <form onSubmit={this.handleSubmit}>
           <label>
             Name:
-            <input type="text" value={this.state.name} onChange={this.handleNameChange} />
+            <TextInput value={this.state.name} onChange={this.handleNameChange} />
           </label>
           <label>
             Duration:
-            <input type="text" value={this.state.duration} onChange={this.handleDurationChange} />
+            <TextInput value={this.state.duration} onChange={this.handleDurationChange} />
           </label>
           <label>
             Year:
-            <input type="text" value={this.state.year} onChange={this.handleYearChange} />
+            <TextInput value={this.state.year} onChange={this.handleYearChange} />
           </label>
           <input type="submit" value="Submit" />
         </form>
@@ -57,4 +59,5 @@ class NewMovieForm extends React.Component {
   }
 }
 
-export default NewMovieForm
+
+export default MovieForm

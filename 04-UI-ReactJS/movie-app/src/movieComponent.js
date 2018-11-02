@@ -1,9 +1,9 @@
 import React from 'react';
 
-const MovieView = props => {
+const MovieComponent = props => {
   return (
     <p> {props.movie.toString()} </p>
   );
 }
 
-export default MovieView
+export default MovieComponent

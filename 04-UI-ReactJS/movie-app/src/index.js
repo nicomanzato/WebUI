@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MovieList from './movieList.js';
-import NewMovieForm from './newMovieForm.js';
+import NewMovieForm from './movieForm/newMovieForm.js';
 import { createStore } from 'redux'
 import movieApp from './redux/movieApp.js';
 import {
@@ -50,7 +50,7 @@ class App extends React.Component {
     store.dispatch(addMovie(movie));
   }
 
-  editMovie(index, newMovie) {
+  editMovie(newMovie, index) {
     // Previous implementation
     /*
     let newMovieList = this.state.movieList
@@ -93,7 +93,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div><NewMovieForm onSubmit={this.addMovie} /></div>
+        <div><NewMovieForm title='New Movie' onSubmit={this.addMovie} /></div>
         <div><MovieList store={store} onEdit={this.editMovie} onDelete={this.deleteMovie} /></div>
       </div>
     )

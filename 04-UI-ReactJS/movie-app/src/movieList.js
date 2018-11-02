@@ -1,6 +1,6 @@
 import React from 'react';
-import MovieView from './movieView.js';
-import EditMovieForm from './editMovieForm.js';
+import MovieComponent from './movieComponent.js';
+import EditMovieForm from './movieForm/editMovieForm.js';
 
 class MovieList extends React.Component {
 
@@ -27,8 +27,8 @@ class MovieList extends React.Component {
 
     const movieList = this.state.movies.map((movie, index) =>
       <tr key={index}>
-        <td key={index + 'a'}><MovieView movie={movie} /></td>
-        <td key={index + 'b'}><EditMovieForm onSubmit={this.props.onEdit} movie={movie} movieIndex={index} /></td>
+        <td key={index + 'a'}><MovieComponent movie={movie} /></td>
+        <td key={index + 'b'}><EditMovieForm onSubmit={this.props.onEdit} movie={movie} movieIndex={index}/></td>
         <td key={index + 'c'}><button onClick={ () => this.handleDelete(index)}>Delete</button></td>
       </tr>
     );

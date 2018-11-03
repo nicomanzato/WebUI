@@ -1,28 +1,33 @@
 import { StyleSheet, Text, View, ScrollView, Image, Dimensions} from 'react-native';
 
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'skyblue',
-    flex: 1
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between'
   },
   box: {
     margin: 10,
     borderRadius: 10
   },
-  smallBox: {
+  redBox: {
     backgroundColor: 'red',
     height: 100,
     width: 100
   },
-  mediumBox: {
+  purpleBox: {
     backgroundColor: 'purple',
-    height: 150,
-    width: 150
+    height: 100,
+    width: 100
   },
-  bigBox: {
+  whiteBox: {
     backgroundColor: 'white',
-    height: 200,
-    width: 200
+    height: 100,
+    width: 100
   }
 });
 

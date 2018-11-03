@@ -16,17 +16,17 @@ const styles = StyleSheet.create({
   },
   redBox: {
     backgroundColor: 'red',
-    height: 100,
+    height: height * 0.5,
     width: 100
   },
   purpleBox: {
     backgroundColor: 'purple',
-    height: 100,
+    height: height * 0.3,
     width: 100
   },
   whiteBox: {
     backgroundColor: 'white',
-    height: 100,
+    height: height * 0.2,
     width: 100
   }
 });

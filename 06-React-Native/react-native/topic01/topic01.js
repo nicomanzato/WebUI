@@ -1,5 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image, Dimensions} from 'react-native';
+
+const width = Dimensions.get('window').width; //full width
+const height = Dimensions.get('window').height;
 
 export default class Topic01 extends React.Component {
   render() {
@@ -28,7 +31,8 @@ export default class Topic01 extends React.Component {
         <View>
           <Image
             source={require('./image.gif')}
-            style={styles.fullWidth}
+            style={styles.img}
+            resizeMode='stretch'
           />
         </View>
       </View>
@@ -37,6 +41,9 @@ export default class Topic01 extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  img: {
+    width: width
+  },
   title: {
     fontSize: 20
   },

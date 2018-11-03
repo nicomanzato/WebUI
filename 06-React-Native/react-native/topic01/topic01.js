@@ -16,12 +16,18 @@ export default class Topic01 extends React.Component {
             <Text>This view has a border and red background</Text>
           </View>
         </ScrollView>
+        <View>
+          <Text>This is a text, <Text style={styles.title}> BUT THIS IS A TITLE </Text> component.</Text>
+        </View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  title: {
+    fontSize: 20
+  },
   scrollView: {
     backgroundColor: 'grey',
     height: 300

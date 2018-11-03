@@ -16,18 +16,21 @@ const styles = StyleSheet.create({
   },
   redBox: {
     backgroundColor: 'red',
-    height: height * 0.5,
-    width: 100
+    height: 100,
+    width: 100,
+    alignSelf: 'flex-start'
   },
   purpleBox: {
     backgroundColor: 'purple',
-    height: height * 0.3,
-    width: 100
+    height: 100,
+    width: 100,
+    alignSelf: 'flex-end'
   },
   whiteBox: {
     backgroundColor: 'white',
-    height: height * 0.2,
-    width: 100
+    height: 100,
+    width: 100,
+    alignSelf: 'center'
   }
 });
 

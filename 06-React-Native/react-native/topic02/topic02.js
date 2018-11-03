@@ -7,8 +7,8 @@ export default class Topic02 extends React.Component {
     return (
       <View style={styles.container}>
         <View style={[styles.box, styles.redBox]}></View>
-        <View style={[styles.box, styles.purpleBox]}></View>
         <View style={[styles.box, styles.whiteBox]}></View>
+        <View style={[styles.box, styles.purpleBox]}></View>
       </View>
     );
   }

@@ -6,7 +6,8 @@ const styles = StyleSheet.create({
     flex: 1
   },
   box: {
-    margin: 10
+    margin: 10,
+    borderRadius: 10
   },
   smallBox: {
     backgroundColor: 'red',

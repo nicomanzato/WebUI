@@ -10,7 +10,12 @@ const styles = StyleSheet.create({
   },
   textInput: {
     height: 40,
-  }
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10
+  },
 });
 
 

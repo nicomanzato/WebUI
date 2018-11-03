@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
 
 export default class Topic01 extends React.Component {
   render() {
@@ -18,6 +18,18 @@ export default class Topic01 extends React.Component {
         </ScrollView>
         <View>
           <Text>This is a text, <Text style={styles.title}> BUT THIS IS A TITLE </Text> component.</Text>
+        </View>
+        <View>
+          <Image
+            style={{width: 50, height: 50}}
+            source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
+          />
+        </View>
+        <View>
+          <Image
+            source={require('./image.gif')}
+            style={styles.fullWidth}
+          />
         </View>
       </View>
     );

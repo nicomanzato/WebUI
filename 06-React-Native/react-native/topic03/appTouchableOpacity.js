@@ -4,6 +4,16 @@ import styles from './styles.js';
 
 const AppTouchableOpacity = (props) => {
 
+  if (props.disabled) {
+    return (
+      <TouchableOpacity
+        style={[styles.button, styles.disabledButton]}
+      >
+        <Text style={styles.disabledButtonText}>{props.text}</Text>
+      </TouchableOpacity>
+    );
+  }
+
   switch(props.type){
     case 'primary': return (
       <TouchableOpacity
@@ -20,14 +30,6 @@ const AppTouchableOpacity = (props) => {
         onPress={props.onPress}
       >
         <Text style={styles.secundaryButtonText}>{props.text}</Text>
-      </TouchableOpacity>
-    );
-
-    case 'disabled': return (
-      <TouchableOpacity
-        style={[styles.button, styles.disabledButton]}
-      >
-        <Text style={styles.disabledButtonText}>{props.text}</Text>
       </TouchableOpacity>
     );
 

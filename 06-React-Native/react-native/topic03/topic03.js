@@ -48,7 +48,8 @@ export default class Topic03 extends React.Component {
         />
         <AppTouchableOpacity
           text="Disabled Button"
-          type="disabled"
+          type="secundary"
+          disabled
         />
       </View>
     );

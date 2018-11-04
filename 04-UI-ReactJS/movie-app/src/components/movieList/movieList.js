@@ -1,4 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import {
+  editMovie,
+  deleteMovie,
+} from './../../actions'
 import MovieComponent from './../movieComponent.js';
 import EditMovieForm from './../movieForm/editMovieForm.js';
 
@@ -23,4 +28,19 @@ const MovieList = (props) => {
   );
 }
 
-export default MovieList
+const mapStateToProps = (state) => {
+  return {
+    movies: state.movieAction.movies
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onEdit: (movie, index) => { dispatch(editMovie(index, movie)) },
+    onDelete: (index) => { dispatch(deleteMovie(index)) },
+  }
+}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MovieList)

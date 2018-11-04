@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import Movie from './../../classes/Movie.js';
 import MovieForm from './movieForm.js'
+import { addMovie } from './../../actions'
 
 class NewMovieForm extends React.Component {
   render() {
@@ -13,4 +15,12 @@ class NewMovieForm extends React.Component {
   }
 }
 
-export default NewMovieForm
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSubmit: (movie) => { dispatch(addMovie(movie)) }
+  }
+}
+export default connect(
+  null,
+  mapDispatchToProps
+)(NewMovieForm)

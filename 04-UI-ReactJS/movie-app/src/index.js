@@ -10,7 +10,7 @@ import {
   deleteMovie,
 } from './actions'
 import Movie from './classes/Movie.js';
-import WrappedMovieList from './components/movieList/wrappedMovieList.js'
+import MovieList from './components/movieList/movieList.js'
 
 const store = createStore(movieApp);
 
@@ -46,9 +46,6 @@ class App extends React.Component {
       movieList: newMovieList
     })
     */
-
-    //Redux Implementation
-    store.dispatch(addMovie(movie));
   }
 
   editMovie(newMovie, index) {
@@ -63,9 +60,6 @@ class App extends React.Component {
       movieList: newMovieList
     });
     */
-
-    //Redux Implementation
-    store.dispatch(editMovie(index, newMovie));
   }
 
   deleteMovie(index) {
@@ -80,16 +74,13 @@ class App extends React.Component {
       movieList: newMovieList
     });
     */
-
-    //Redux Implementation
-    store.dispatch(deleteMovie(index));
   }
 
   render() {
     return (
       <div>
-        <div><NewMovieForm title='New Movie' onSubmit={this.addMovie} /></div>
-        <div><WrappedMovieList onEdit={this.editMovie} onDelete={this.deleteMovie} /></div>
+        <div><NewMovieForm title='New Movie' /></div>
+        <div><MovieList /></div>
       </div>
     )
   }

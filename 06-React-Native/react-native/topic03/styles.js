@@ -13,8 +13,29 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#DDDDDD',
-    padding: 10
+    padding: 10,
+    borderRadius: 50,
+    margin: 10
+  },
+  primaryButton: {
+    backgroundColor: 'darkcyan',
+  },
+  primaryButtonText: {
+    color: 'white'
+  },
+  secundaryButton: {
+    borderWidth: 1,
+    borderColor: 'grey'
+  },
+  secundaryButtonText: {
+    color: 'grey'
+  },
+  disabledButton: {
+    borderColor: 'rgba(80,80,80,0.3)',
+    borderWidth: 1,
+  },
+  disabledButtonText: {
+    color: 'rgba(80,80,80,0.3)'
   },
 });
 

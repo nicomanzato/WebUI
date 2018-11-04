@@ -1,7 +1,8 @@
 import React from 'react';
-import {Text, View, TextInput, TouchableOpacity} from 'react-native';
+import {Text, View, TextInput} from 'react-native';
 import styles from './styles.js';
 import AppTextInput from './appTextInput.js'
+import AppTouchableOpacity from './appTouchableOpacity';
 
 export default class Topic03 extends React.Component {
   constructor(props) {
@@ -30,13 +31,25 @@ export default class Topic03 extends React.Component {
          onChangeText={(text) => this.setState({text})}
          value={this.state.text}
         />
-        <TouchableOpacity
-          title="Clear Text"
-          style={styles.button}
+        <AppTouchableOpacity
+          text="Clear Text"
           onPress={this.handleClearButtonPress}
-        >
-          <Text> Press here to Clear </Text>
-        </TouchableOpacity>
+        />
+
+        <AppTouchableOpacity
+          text="Primary Button"
+          type="primary"
+          onPress={this.handleClearButtonPress}
+        />
+        <AppTouchableOpacity
+          text="Secundary Button"
+          type="secundary"
+          onPress={this.handleClearButtonPress}
+        />
+        <AppTouchableOpacity
+          text="Disabled Button"
+          type="disabled"
+        />
       </View>
     );
   }

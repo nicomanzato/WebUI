@@ -2,10 +2,11 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import styles from './styles.js';
 import { createBottomTabNavigator } from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import AppTextInput from './../topic03/appTextInput.js'
 import AppTouchableOpacity from './../topic03/appTouchableOpacity';
 
-class HomeScreen extends React.Component {
+class Forms extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -57,17 +58,42 @@ class HomeScreen extends React.Component {
   }
 }
 
-class SettingsScreen extends React.Component {
+class Other extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings!</Text>
+        <Text>Other!</Text>
       </View>
     );
   }
 }
 
 export default createBottomTabNavigator({
-  Home: HomeScreen,
-  Settings: SettingsScreen,
+  Forms: Forms,
+  Other: Other,
+},{
+  navigationOptions: ({ navigation }) => ({
+    tabBarIcon: ({ focused, horizontal, tintColor }) => {
+      const { routeName } = navigation.state;
+      let iconName;
+      switch(routeName){
+        case "Forms": {
+          iconName = "ios-cloud-outline";
+          break;
+        }
+        case "Other": {
+          iconName = "ios-cafe";
+          break;
+        }
+        default: {
+          iconName = "ios-car"
+        }
+      }
+      return <Ionicons name={iconName} size={horizontal ? 20 : 25} color={tintColor} />;
+    },
+  }),
+  tabBarOptions: {
+    activeTintColor: 'tomato',
+    inactiveTintColor: 'gray',
+  },
 });

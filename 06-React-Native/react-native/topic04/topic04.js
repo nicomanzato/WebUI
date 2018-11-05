@@ -1,75 +1,19 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import styles from './styles.js';
-import { createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import AppTextInput from './../topic03/appTextInput.js'
-import AppTouchableOpacity from './../topic03/appTouchableOpacity';
-
-class Forms extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: ''
-    };
-
-    this.handleClearButtonPress = this.handleClearButtonPress.bind(this);
-  }
-
-  handleClearButtonPress(input) {
-    this.setState({
-      text: ''
-    });
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Enter your input here</Text>
-        <AppTextInput
-         style={styles.textInput}
-         placeholder="Type here!"
-         type="password"
-         onChangeText={(text) => this.setState({text})}
-         value={this.state.text}
-        />
-        <AppTouchableOpacity
-          text="Clear Text"
-          onPress={this.handleClearButtonPress}
-        />
-
-        <AppTouchableOpacity
-          text="Primary Button"
-          type="primary"
-          onPress={this.handleClearButtonPress}
-        />
-        <AppTouchableOpacity
-          text="Secundary Button"
-          type="secundary"
-          onPress={this.handleClearButtonPress}
-        />
-        <AppTouchableOpacity
-          text="Disabled Button"
-          type="secundary"
-          disabled
-        />
-      </View>
-    );
-  }
-}
-
-class Other extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Other!</Text>
-      </View>
-    );
-  }
-}
+import Forms from './forms.js';
+import Forms2 from './forms2.js'
+import Forms3 from './forms3.js'
+import Other from './other.js';
 
 export default createBottomTabNavigator({
-  Forms: Forms,
+  Home: createStackNavigator({
+    Forms: Forms,
+    Forms2: Forms2,
+    Forms3: Forms3,
+  }),
   Other: Other,
 },{
   navigationOptions: ({ navigation }) => ({

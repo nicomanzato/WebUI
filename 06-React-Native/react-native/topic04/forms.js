@@ -51,6 +51,11 @@ export default class Forms extends React.Component {
           type="secundary"
           disabled
         />
+      <AppTouchableOpacity
+            text="Next"
+            type="primary"
+            onPress={() => this.props.navigation.navigate('Forms2')}
+          />
       </View>
     );
   }

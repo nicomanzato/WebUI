@@ -1,14 +1,13 @@
 import React from 'react';
+import {Text, View} from 'react-native';
+import AppTouchableOpacity from './../topic03/appTouchableOpacity';
 
-export default class Post {
-  constructor(id = '-1', title = "No Title", userId = "no UserId", body = "No Body"){
-    this.id = id,
-    this.title = title,
-    this.userId = userId,
-    this.body = body
-  }
-
-  toString = () => {
-    return this.title
+export default class Post extends React.Component {
+  render() {
+    return (
+      <View>
+        <Text>Some random title</Text>
+      </View>
+    );
   }
 }

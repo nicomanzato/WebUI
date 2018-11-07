@@ -5,14 +5,14 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Forms from './forms.js';
 import Posts from './posts.js'
-import Forms3 from './forms3.js'
+import Post from './post.js'
 import Other from './other.js';
 
 export default createBottomTabNavigator({
   Home: createStackNavigator({
     Forms: Forms,
     Posts: Posts,
-    Forms3: Forms3,
+    Post: Post,
   }),
   Other: Other,
 },{

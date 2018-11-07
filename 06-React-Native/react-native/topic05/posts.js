@@ -1,21 +1,21 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import AppTouchableOpacity from './../topic03/appTouchableOpacity';
-import Post from './post.js'
+import Post from './model/post.js'
 import PostList from './postList.js';
+import styles from './styles.js';
 
 export default class Posts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: []
+      posts: [],
+      refreshing: true,
     }
   }
 
   componentDidMount = () => {
-
     this.fetchPosts();
-
   }
 
   fetchPosts = () => {
@@ -28,7 +28,8 @@ export default class Posts extends React.Component {
         });
 
         this.setState({
-          posts: posts
+          posts: posts,
+          refreshing: false
         });
       }
     );
@@ -45,15 +46,19 @@ export default class Posts extends React.Component {
     });
   }
 
+  /*
+  <AppTouchableOpacity
+    text="Next"
+    type="primary"
+    onPress={() => this.props.navigation.navigate('Post')}
+  />
+
+  */
+
   render = () => {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <PostList posts={ this.state.posts }/>
-        <AppTouchableOpacity
-          text="Next"
-          type="primary"
-          onPress={() => this.props.navigation.navigate('Forms3')}
-        />
+      <View style={styles.container}>
+        <PostList refreshing={this.state.refreshing} navigation={this.props.navigation} posts={this.state.posts}/>
       </View>
 
     );

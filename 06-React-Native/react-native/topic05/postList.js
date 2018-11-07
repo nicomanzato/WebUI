@@ -1,20 +1,7 @@
 import React from 'react';
 import {Text, FlatList, View, TouchableOpacity, ActivityIndicator} from 'react-native';
 import styles from './styles.js';
-
-const PostListElement = (props) => {
-
-  onPress = () => {
-    props.onPress(props.post);
-  };
-
-  return (
-    <TouchableOpacity onPress={this.onPress} style={styles.post}>
-      <Text style={styles.postTitle}> { props.post.title } </Text>
-      <Text style={styles.postBody}> { props.post.body } </Text>
-    </TouchableOpacity>
-  );
-}
+import PostListElement from './postListElement.js'
 
 const Loading = (props) => {
 
@@ -57,7 +44,6 @@ class PostList extends React.Component{
           renderItem={this.renderItem}
           keyExtractor={this.keyExtractor}
           showsVerticalScrollIndicator={false}
-          onEndReachedThreshold={5}
         />
       </View>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, FlatList, View, TouchableOpacity, ActivityIndicator} from 'react-native';
-import styles from './styles.js';
+import styles from './../styles.js';
 import PostListElement from './postListElement.js'
 
 const Loading = (props) => {

@@ -1,9 +1,9 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import AppTouchableOpacity from './../topic03/appTouchableOpacity';
-import Post from './model/post.js'
-import PostList from './postList.js';
-import styles from './styles.js';
+import AppTouchableOpacity from './../../topic03/appTouchableOpacity';
+import Post from './../model/post.js'
+import PostList from './../components/postList.js';
+import styles from './../styles.js';
 
 export default class Posts extends React.Component {
   constructor(props) {

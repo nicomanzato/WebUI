@@ -1,8 +1,8 @@
-import AppTextInput from './../topic03/appTextInput.js'
-import AppTouchableOpacity from './../topic03/appTouchableOpacity';
+import AppTextInput from './../../topic03/appTextInput.js'
+import AppTouchableOpacity from './../../topic03/appTouchableOpacity';
 import React from 'react';
 import {Text, View} from 'react-native';
-import styles from './styles.js';
+import styles from './../styles.js';
 
 export default class Forms extends React.Component {
   constructor(props) {

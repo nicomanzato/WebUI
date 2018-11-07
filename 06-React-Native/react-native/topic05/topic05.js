@@ -3,10 +3,10 @@ import {Text, View} from 'react-native';
 import styles from './styles.js';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Forms from './forms.js';
-import Posts from './posts.js'
-import Post from './post.js'
-import Other from './other.js';
+import Forms from './screen/forms.js';
+import Posts from './screen/posts.js'
+import Post from './screen/post.js'
+import Other from './screen/other.js';
 
 export default createBottomTabNavigator({
   Home: createStackNavigator({

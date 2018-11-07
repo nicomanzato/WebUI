@@ -16,8 +16,8 @@ export default createBottomTabNavigator({
     Post: Post,
   }),
   Camera: createStackNavigator({
-    Camera1: Camera,
-    Camera2: CameraShowPicture
+    Camera: Camera,
+    CameraShowPicture: CameraShowPicture
   }),
 },{
   navigationOptions: ({ navigation }) => ({

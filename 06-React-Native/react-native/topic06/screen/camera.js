@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { Camera, Permissions } from 'expo';
+import styles from './../styles.js';
 
 class CameraScreen extends React.Component {
 
@@ -10,7 +11,6 @@ class CameraScreen extends React.Component {
       hasCameraPermission: null,
       type: Camera.Constants.Type.front,
     };
-
   }
 
   async componentDidMount() {
@@ -37,25 +37,14 @@ class CameraScreen extends React.Component {
       return (
         <View style={{ flex: 1 }}>
           <Camera ref={ref => { this.camera = ref; }} style={{ flex: 1 }} type={this.state.type}>
-            <View
-              style={{
-                flex: 1,
-                backgroundColor: 'transparent',
-                flexDirection: 'row',
-              }}>
-              <TouchableOpacity
-                style={{
-                  flex: 0.1,
-                  alignSelf: 'flex-end',
-                  alignItems: 'center',
-                }}
-                onPress={this.takePicture}>
-                <Text
-                  style={{ fontSize: 18, marginBottom: 10, color: 'white' }}>
-                  {' '}Take Picture{' '}
-                </Text>
-              </TouchableOpacity>
-            </View>
+            <TouchableOpacity
+              style={styles.cameraButton}
+              onPress={this.takePicture}>
+              <Text
+                style={styles.cameraText}>
+                {' '}Take Picture{' '}
+              </Text>
+            </TouchableOpacity>
           </Camera>
         </View>
       );

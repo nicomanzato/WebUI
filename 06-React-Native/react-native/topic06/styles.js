@@ -23,6 +23,21 @@ const styles = StyleSheet.create({
   postBody: {
   },
   loadingIndicator: {
+  },
+  cameraButton: {
+    flex: 0.1,
+    alignSelf: 'flex-end',
+    alignItems: 'center',
+  },
+  cameraText: {
+    fontSize: 18,
+    marginBottom: 10,
+    color: 'white'
+  },
+  showPictureContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 
